@@ -1,5 +1,7 @@
 fastapi
 uvicorn
+pytest
+requests
 langchain
 openai
 python-dotenv
