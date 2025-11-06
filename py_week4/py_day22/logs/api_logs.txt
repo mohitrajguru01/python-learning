@@ -3,3 +3,5 @@
 [2025-10-27 13:07:15] /greet/Mohit: Greeted user: Mohit
 [2025-10-27 13:07:45] /process: Data processing initiated.
 [2025-10-27 13:10:07] /: Root endpoint called
+[2025-11-06 19:06:36] /process: Data processing initiated.
+[2025-11-06 19:06:57] /status: Status endpoint called successfully.

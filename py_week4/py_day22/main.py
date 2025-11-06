@@ -6,7 +6,7 @@ import os
 
 app = FastAPI(title="Async FastAPI with Background Tasks")
 
-LOG_DIR = "py_day22/logs"
+LOG_DIR = "py_week4/py_day22/logs"
 LOG_FILE = f"{LOG_DIR}/api_logs.txt"
 
 # Ensure log directory exists
