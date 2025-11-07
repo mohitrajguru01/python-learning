@@ -1,9 +1,6 @@
 #!/bin/bash
-set -e
-
 echo "🚀 Installing dependencies..."
-python3 -m pip install --upgrade pip
-python3 -m pip install -r /app/requirement.txt
+pip install --no-cache-dir -r requirement.txt
 
-echo "✅ Dependencies installed. Starting Uvicorn..."
-exec python3 -m uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}
+echo "🔥 Starting FastAPI server..."
+exec uvicorn py_week4.py_day25.main:app --host 0.0.0.0 --port ${PORT:-8000}
