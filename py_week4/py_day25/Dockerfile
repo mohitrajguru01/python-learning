@@ -4,21 +4,21 @@ FROM python:3.12-slim
 # Set working directory
 WORKDIR /app
 
-# Copy global files
+# Copy requirements and startup script from repo root
 COPY ../../requirement.txt /app/requirement.txt
 COPY ../../start.sh /app/start.sh
 
-# Copy app code
+# Copy current folder (main.py etc.)
 COPY . /app
 
-# Install dependencies
+# Ensure bash + permissions
 RUN apt-get update && apt-get install -y bash && \
-    python -m pip install --upgrade pip && \
-    pip install --no-cache-dir -r /app/requirement.txt && \
-    chmod +x /app/start.sh
+    chmod +x /app/start.sh && \
+    python3 -m pip install --upgrade pip && \
+    pip install --no-cache-dir -r /app/requirement.txt
 
-# Expose port
+# Expose port for Railway
 EXPOSE 8000
 
-# Command for Railway
-CMD ["/bin/bash", "/app/start.sh"]
+# ENTRYPOINT ensures bash executes your script properly
+ENTRYPOINT ["/bin/bash", "/app/start.sh"]
