@@ -10,3 +10,5 @@ langchain-openai
 pypdf
 python-multipart
 faiss-cpu
+textblob
+gunicorn
