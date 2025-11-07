@@ -27,4 +27,4 @@ EXPOSE 8000
 # ==============================
 # 5. Start command using Gunicorn + Uvicorn Worker
 # ==============================
-CMD ["gunicorn", "-k", "uvicorn.workers.UvicornWorker", "py_week4.py_day25.main:app", "--bind", "0.0.0.0:8000"]
+CMD ["gunicorn", "-k", "uvicorn.workers.UvicornWorker", "main:app", "--bind", "0.0.0.0:8000"]
