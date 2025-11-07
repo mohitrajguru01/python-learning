@@ -1,3 +1,5 @@
 #!/bin/bash
-pip install -r requirement.txt
-exec uvicorn py_week4.py_day25.main:app --host 0.0.0.0 --port $PORT
+set -e  # Exit immediately if a command fails
+python -m pip install --upgrade pip
+python -m pip install -r /app/requirement.txt
+exec uvicorn main:app --host 0.0.0.0 --port ${PORT:-8000}
