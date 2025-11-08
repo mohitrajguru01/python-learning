@@ -14,6 +14,8 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s - %(levelname)s - %(message)s",
 )
+# Ensure the log file exists (touch)
+open(LOG_FILE, "a").close()
 
 app = FastAPI()
 
@@ -23,12 +25,12 @@ def home():
 
 @app.get("/divide")
 def divide_numbers(a: float, b: float):
-    try:
-        result = a / b
-        return {"result": result}
-    except Exception as e:
-        logging.error(f"Error dividing numbers: {str(e)}")
-        raise e
+    # Handle division by zero explicitly and return a JSONResponse with 500
+    if b == 0:
+        logging.error("Error dividing numbers: division by zero")
+        return JSONResponse(status_code=500, content={"error": "Internal Server Error", "detail": "division by zero"})
+    result = a / b
+    return {"result": result}
 
 # Global exception handler
 @app.exception_handler(Exception)
